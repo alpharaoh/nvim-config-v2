@@ -8,6 +8,11 @@ vim.cmd "silent! command! NvChadSnapshotCreate lua require('nvchad').snap_create
 vim.cmd "silent! command! NvChadSnapshotDelete lua require('nvchad').snap_delete()"
 vim.cmd "silent! command! NvChadSnapshotCheckout lua require('nvchad').snap_checkout()"
 
+
+vim.g.copilot_assume_mapped = true
+-- vim.g.copilot_no_tab_map = false
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
 -- autocmds
 local autocmd = vim.api.nvim_create_autocmd
 

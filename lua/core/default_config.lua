@@ -19,6 +19,13 @@ M.ui = {
   transparency = false,
 }
 
+M.copilot = {
+  mode_opts = { expr = true },
+  i = {
+    ["<C-h>"] = { 'copilot#Accept("<Left>")', "   copilot accept" },
+  },
+}
+
 M.plugins = {}
 
 -- check core.mappings for table structure

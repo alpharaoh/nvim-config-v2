@@ -34,10 +34,6 @@ M.general = {
     -- Copy all
     ["<C-c>"] = { "<cmd> %y+ <CR>", "copy whole file" },
 
-    -- line numbers
-    ["<leader>n"] = { "<cmd> set nu! <CR>", "toggle line number" },
-    ["<leader>rn"] = { "<cmd> set rnu! <CR>", "toggle relative number" },
-
     -- update nvchad
     ["<leader>uu"] = { "<cmd> :NvChadUpdate <CR>", "update nvchad" },
 
@@ -89,7 +85,7 @@ M.tabufline = {
       "goto next buffer",
     },
 
-    ["<S-Tab>"] = {
+    ["<leader><TAB>"] = {
       function()
         require("nvchad_ui.tabufline").tabuflinePrev()
       end,
@@ -114,7 +110,7 @@ M.comment = {
 
   -- toggle comment in both modes
   n = {
-    ["<leader>/"] = {
+    ["<C-_>"] = {
       function()
         require("Comment.api").toggle.linewise.current()
       end,
@@ -123,7 +119,7 @@ M.comment = {
   },
 
   v = {
-    ["<leader>/"] = {
+    ["<C-_>"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     },
@@ -229,7 +225,7 @@ M.lspconfig = {
 
     ["<leader>fm"] = {
       function()
-        vim.lsp.buf.format { async = true }
+        vim.lsp.buf.format{ async = true }
       end,
       "lsp formatting",
     },
@@ -262,7 +258,7 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
+    ["<leader>n"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
     ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
@@ -276,9 +272,10 @@ M.telescope = {
     -- find
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "find all" },
-    ["<leader>fw"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
+    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "find buffers" },
     ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "help page" },
+    ["<leader>fs"] = { "<cmd> Telescope grep_string <CR>", "grep string" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "find oldfiles" },
     ["<leader>tk"] = { "<cmd> Telescope keymaps <CR>", "show keys" },
 

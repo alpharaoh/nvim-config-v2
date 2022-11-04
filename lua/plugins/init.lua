@@ -22,7 +22,6 @@ local plugins = {
       end
     end,
   },
-
   ["NvChad/ui"] = {
     after = "base46",
     config = function()
@@ -33,7 +32,6 @@ local plugins = {
       end
     end,
   },
-
   ["NvChad/nvterm"] = {
     module = "nvterm",
     config = function()

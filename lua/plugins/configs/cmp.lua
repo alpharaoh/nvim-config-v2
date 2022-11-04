@@ -91,6 +91,7 @@ local options = {
   sources = {
     { name = "luasnip" },
     { name = "nvim_lsp" },
+    { name = "copilot" },
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
