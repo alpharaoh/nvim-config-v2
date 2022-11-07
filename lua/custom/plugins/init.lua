@@ -1,37 +1,10 @@
 return {
-  ["neovim/nvim-lspconfig"] = {
-    config = function()
-      require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
-    end,
-  },
-  -- LSP/Formatting
-  ["jose-elias-alvarez/null-ls.nvim"] = {
-    commit = "76d0573fc159839a9c4e62a0ac4f1046845cdd50",
-    after = "nvim-lspconfig",
-    config = function()
-      require "custom.plugins.null-ls"
-    end,
-    requires = { "nvim-lua/plenary.nvim" },
-  },
-  ["williamboman/mason.nvim"] = {
-    override_options = {
-      ensure_installed = {
-        "sqls",
-        "typescript-language-server",
-        "python-lsp-server",
-        "prettierd",
-        "mypy",
-        "json-lsp",
-        "dockerfile-language-server",
-        "lua-language-server",
-        "black",
-        "css-lsp",
-      },
-    },
-  },
-  ["tpope/vim-surround"] = {},
   --  Plugins
+  ["windwp/nvim-ts-autotag"] = {
+    config = function()
+      require 'custom.plugins.closetag'
+    end,
+  },
   ["iamcco/markdown-preview.nvim"] = {
     run = function() vim.fn["mkdp#util#install"]() end,
     mkdp_theme='dark'
@@ -66,4 +39,37 @@ return {
     end
   },
   ["kdheepak/lazygit.nvim"] = {},
+
+  -- LSP/Formatting
+  ["neovim/nvim-lspconfig"] = {
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.plugins.lspconfig"
+    end,
+  },
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    commit = "76d0573fc159839a9c4e62a0ac4f1046845cdd50",
+    after = "nvim-lspconfig",
+    config = function()
+      require "custom.plugins.null-ls"
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  },
+  ["williamboman/mason.nvim"] = {
+    override_options = {
+      ensure_installed = {
+        "sqls",
+        "typescript-language-server",
+        "python-lsp-server",
+        "prettierd",
+        "mypy",
+        "json-lsp",
+        "dockerfile-language-server",
+        "lua-language-server",
+        "black",
+        "css-lsp",
+      },
+    },
+  },
+  ["tpope/vim-surround"] = {},
 }
