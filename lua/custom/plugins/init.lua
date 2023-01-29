@@ -17,9 +17,21 @@ return {
   ["windwp/nvim-autopairs"] = {
     config = function() require("nvim-autopairs").setup {} end
   },
-  ["github/copilot.vim"] = {},
-  ["hrsh7th/cmp-copilot"] = {
-    after = "nvim-cmp",
+  ["zbirenbaum/copilot.lua"] = {
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({})
+    end,
+    suggestion = { enabled = true },
+    panel = { enabled = false },
+  },
+  ["zbirenbaum/copilot-cmp"] = {
+    after = { "copilot.lua" },
+    method = "getCompletionsCycling",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   },
   ["alexghergh/nvim-tmux-navigation"] = {
     config = function()
@@ -39,7 +51,6 @@ return {
     end
   },
   ["kdheepak/lazygit.nvim"] = {},
-
   -- LSP/Formatting
   ["neovim/nvim-lspconfig"] = {
     config = function()

@@ -16,12 +16,11 @@ null_ls.setup {
     diagnostics.flake8.with({ extra_args = { "--max-line-length=240" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
   },
-  defaults = {},
   -- format on save
   on_attach = function()
     vim.api.nvim_create_autocmd("BufWritePost", {
       callback = function()
-        vim.lsp.buf.format { async = true }
+        vim.lsp.buf.format { async = false }
       end,
     })
   end,
