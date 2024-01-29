@@ -5,6 +5,8 @@ return {
       require 'custom.plugins.closetag'
     end,
   },
+  ["RRethy/nvim-base16"] = {
+  },
   ["iamcco/markdown-preview.nvim"] = {
     run = function() vim.fn["mkdp#util#install"]() end,
     mkdp_theme='dark'
